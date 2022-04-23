@@ -32,7 +32,7 @@ import MDButton from "components/MDButton";
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Images
-import bgImage from "assets/images/bg-sign-in-basic.jpeg";
+import bgImage from "assets/images/bg.svg";
 
 function Basic() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -54,7 +54,7 @@ function Basic() {
           textAlign="center"
         >
           <MDTypography variant="h2" fontWeight="medium" color="white" mt={1}>
-            Smart School
+            Smart header
           </MDTypography>
           <MDTypography variant="h6" fontWeight="medium" color="white" mt={1}>
             Authentication

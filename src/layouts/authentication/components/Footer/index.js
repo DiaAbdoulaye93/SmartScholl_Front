@@ -76,7 +76,6 @@ function Footer({ light }) {
                 Abdoulaye Dia
               </MDTypography>
             </Link>
-            pour une meilleur gestion des écoles.
           </MDBox>
         </MDBox>
       </Container>
