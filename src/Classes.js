@@ -1,13 +1,28 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import useFetch from "react-fetch-hook"
 import { environment } from "./env";
 
+export default function Classes() {
+  const [val, setVal] = useState();
+  const getAnswer = async () => {
+    const {data} = await axios.get(environment.BaseUrl + "class/list");
+    setVal(data['hydra:member'][0].libelle);
+  }
+  console.log(val);
+  useEffect(() => {
+    getAnswer();
+  }, []);
 
-function Classes() {
-  const { data } = useFetch(environment.BaseUrl + "class/list");
-  if (data) console.log(data[0]);
+  return (
+    <DashboardLayout>
+      <DashboardNavbar />
+      <div>{val}</div>;
+      <Footer />
+      </DashboardLayout>
+
+      ) 
 
 }
-export default Classes;
