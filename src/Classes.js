@@ -8,10 +8,9 @@ import { environment } from "./env";
 export default function Classes() {
   const [val, setVal] = useState();
   const getAnswer = async () => {
-    const {data} = await axios.get(environment.BaseUrl + "class/list");
-    setVal(data['hydra:member'][0].libelle);
+    const { data } = await axios.get(environment.BaseUrl + "class/list");
+    setVal(data['hydra:member']);
   }
-  console.log(val);
   useEffect(() => {
     getAnswer();
   }, []);
@@ -19,10 +18,20 @@ export default function Classes() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <div>{val}</div>;
-      <Footer />
-      </DashboardLayout>
+      {val ? (
+        val.map((item) => {
+          return (
+            <tr key={item.id}>
+              <td>{item.libelle}</td>
+            </tr>
+          )
+        })) : (
+        console.log('hi')
+      )}
 
-      ) 
+      <Footer />
+    </DashboardLayout>
+
+  )
 
 }
