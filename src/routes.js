@@ -44,9 +44,10 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
-
 // @mui icons
 import Icon from "@mui/material/Icon";
+import Classes from "Classes";
+import { from } from "stylis";
 
 const routes = [
   {
@@ -62,8 +63,8 @@ const routes = [
     name: "Classes",
     key: "classes",
     icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/tables",
-    component: <Tables />,
+    route: "/classe",
+    component: <Classes />,
   },
   {
     type: "collapse",

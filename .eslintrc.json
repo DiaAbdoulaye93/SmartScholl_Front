@@ -14,9 +14,9 @@
   "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": [
-      "error",
+      "warn",
       {
-        "endOfLine": "auto"
+        "endOfLine": "lf"
       }
     ],
     "default-param-last": "off",
