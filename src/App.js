@@ -167,7 +167,7 @@ export default function App() {
         {layout === "vr" && <Configurator />}
         <Routes>
           {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/authentication/login" />} />
+          <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </ThemeProvider>
     </CacheProvider>
@@ -191,7 +191,7 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/authentication/login" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </ThemeProvider>
   );

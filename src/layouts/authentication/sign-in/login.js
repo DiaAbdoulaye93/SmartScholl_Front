@@ -4,13 +4,14 @@ import CheckButton from "react-validation/build/button";
 
 import AuthService from "../../../services/auth.service";
 import BasicLayout from "../components/BasicLayout";
-import { Card, Switch } from "@mui/material";
+import { Button, Card, Switch } from "@mui/material";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import bgImage from "assets/images/bg.svg";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import Dashboard from "layouts/dashboard";
 import { RememberMe } from "@mui/icons-material";
 
 const required = value => {
@@ -23,7 +24,6 @@ const required = value => {
   }
 };
 export default class Login extends Component {
-
   constructor(props) {
     super(props);
     this.handleLogin = this.handleLogin.bind(this);
@@ -61,11 +61,10 @@ export default class Login extends Component {
     this.form.validateAll();
 
     if (this.checkBtn.context._errors.length === 0) {
+      alert();
       AuthService.login(this.state.username, this.state.password).then(
         () => {
-          alert('ok');
-          console.log("form data", this.state.username, this.state.password);
-          this.setState({ redirect: "/dashboard" });
+          <Navigate to="/dashboard" />
           // window.location.reload();
         },
         error => {
@@ -136,21 +135,18 @@ export default class Login extends Component {
                   fullWidth />
               </MDBox>
               <MDBox mt={4} mb={1}>
-
-                <MDButton variant="gradient" color="info"
-                  disabled={this.state.loading}
+                <Button variant="contained" text="primary"  type="submit" on
                   fullWidth>
                   Connexion
                   {this.state.loading && (
                     <span className="spinner-border spinner-border-sm"></span>
                   )}
-                </MDButton>
+                </Button>
                 <CheckButton
-                style={{ display: "none" }}
-                ref={c => {
-                  this.checkBtn = c;
-                }}
-              />
+                  ref={d => {
+                    this.checkBtn = d;
+                  }}
+                />
               </MDBox>
               <MDBox mt={3} mb={1} textAlign="center">
                 <MDTypography variant="button" color="text">
@@ -167,18 +163,6 @@ export default class Login extends Component {
                   </MDTypography>
                 </MDTypography>
               </MDBox>
-
-              <button
-                className="btn btn-primary btn-block"
-               
-              >
-                {this.state.loading && (
-                  <span className="spinner-border spinner-border-sm"></span>
-                )}
-                <span>Login</span>
-              </button>
-
-
               {this.state.message && (
                 <div className="form-group">
                   <div className="alert alert-danger" role="alert">
@@ -186,7 +170,7 @@ export default class Login extends Component {
                   </div>
                 </div>
               )}
-            
+
             </MDBox>
           </Form>
 

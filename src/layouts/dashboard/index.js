@@ -37,7 +37,7 @@ import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
-
+  alert('hoho');
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -46,6 +46,7 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
+                color="dark"
                 icon="weekend"
                 title="Bookings"
                 count={281}
