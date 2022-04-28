@@ -47,6 +47,7 @@ import SignUp from "layouts/authentication/sign-up";
 // @mui icons
 import Icon from "@mui/material/Icon";
 import Classes from "Classes";
+import Login  from "layouts/authentication/sign-in/login";
 import { from } from "stylis";
 
 const routes = [
@@ -57,6 +58,14 @@ const routes = [
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />,
+  },
+  {
+    type: "collapse",
+    name: "Classes",
+    key: "classes",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/classe",
+    component: <Classes />,
   },
   {
     type: "collapse",
@@ -113,6 +122,14 @@ const routes = [
     icon: <Icon fontSize="small">login</Icon>,
     route: "/authentication/sign-in",
     component: <SignIn />,
+  },
+  {
+    type: "collapse",
+    name: "Login",
+    key: "login",
+    icon: <Icon fontSize="small">login</Icon>,
+    route: "/authentication/login",
+    component: <Login />,
   },
   {
     type: "collapse",
